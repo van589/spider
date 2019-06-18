@@ -67,5 +67,4 @@ public class TextHttpUnit {
         movieService.insertMovie(list);
         webClient.close();
     }
-
 }
