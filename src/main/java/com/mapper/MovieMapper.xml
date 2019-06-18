@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mapper.MovieMapper">
+    <insert id="insertMovieForeach" parameterType="java.util.List">
+        insert into movie
+        ( name,type,url,uploadDate,createTime)
+        values
+        <foreach collection="list" item="item" index="index" separator=",">
+            (
+            #{item.name},
+            #{item.type},
+            #{item.url},
+            #{item.uploadDate},
+            #{item.createTime}
+            )
+        </foreach>
+    </insert>
+</mapper>

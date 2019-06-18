@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="NetWorkSpider:war">
+    <output-path>$PROJECT_DIR$/target</output-path>
+    <root id="archive" name="NetWorkSpider.war">
+      <element id="artifact" artifact-name="NetWorkSpider:war exploded" />
+    </root>
+  </artifact>
+</component>

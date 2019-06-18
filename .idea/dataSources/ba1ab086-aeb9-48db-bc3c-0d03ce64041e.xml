@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<dataSource name="student@localhost">
+  <database-model serializer="dbm" rdbms="MYSQL" format-version="4.7">
+    <root id="1">
+      <DefaultCasing>lower/lower</DefaultCasing>
+    </root>
+    <schema id="2" parent="1" name="bktdemo"/>
+    <schema id="3" parent="1" name="bookstore"/>
+    <schema id="4" parent="1" name="course"/>
+    <schema id="5" parent="1" name="educational_administration_system"/>
+    <schema id="6" parent="1" name="h5crud"/>
+    <schema id="7" parent="1" name="hengrui"/>
+    <schema id="8" parent="1" name="information_schema"/>
+    <schema id="9" parent="1" name="mooc"/>
+    <schema id="10" parent="1" name="mybatis"/>
+    <schema id="11" parent="1" name="mysql"/>
+    <schema id="12" parent="1" name="ocdb"/>
+    <schema id="13" parent="1" name="shoppingapp_db"/>
+    <schema id="14" parent="1" name="ssm_crud"/>
+    <schema id="15" parent="1" name="student">
+      <Current>1</Current>
+      <Visible>1</Visible>
+    </schema>
+    <schema id="16" parent="1" name="tables"/>
+    <table id="17" parent="15" name="movie"/>
+    <column id="18" parent="17" name="id">
+      <Position>1</Position>
+      <DataType>INT(10)|4</DataType>
+      <NotNull>1</NotNull>
+      <SequenceIdentity>1</SequenceIdentity>
+    </column>
+    <column id="19" parent="17" name="name">
+      <Position>2</Position>
+      <DataType>VARCHAR(100)|12</DataType>
+    </column>
+    <column id="20" parent="17" name="type">
+      <Position>3</Position>
+      <DataType>VARCHAR(100)|12</DataType>
+    </column>
+    <column id="21" parent="17" name="url">
+      <Position>4</Position>
+      <DataType>VARCHAR(200)|12</DataType>
+    </column>
+    <column id="22" parent="17" name="uploadDate">
+      <Position>5</Position>
+      <DataType>DATE(10)|91</DataType>
+    </column>
+    <column id="23" parent="17" name="createTime">
+      <Position>6</Position>
+      <DataType>TIMESTAMP(19)|93</DataType>
+    </column>
+    <key id="24" parent="17" name="PRIMARY">
+      <NameSurrogate>1</NameSurrogate>
+      <ColNames>id</ColNames>
+      <Primary>1</Primary>
+    </key>
+  </database-model>
+</dataSource>
