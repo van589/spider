@@ -20,6 +20,11 @@ import java.util.Date;
 import java.util.List;
 import java.util.logging.Level;
 
+/**
+ * @author 梁家铭
+ *
+ * https://github.com/van589/Spider
+ */
 public class TextHttpUnit {
 
     @Test
@@ -42,24 +47,34 @@ public class TextHttpUnit {
         //设置一个运行JavaScript的时间
         String html = rootPage.asXml();
         Document document = Jsoup.parse(html);
-        //中间部分电影
+        /**
+         * 中间部分电影在 class：bd3rl 中，每个电影模块都包含在了 div.co_area2 中。
+         * 拿到每个 co_area2 中 tbody 的 tr 再进行遍历
+         */
         Elements commentList = document.getElementsByClass("bd3rl").select("div.co_area2");
         Elements tr = commentList.select("tbody").select("tr");
         List<Movie> list = new ArrayList<Movie>();
-        //排除广告从1开始
+        /**
+         * 排除广告从i从1开始
+         * 拿到每个tr标签里所需信息并放入bean里用list保存
+         * tr里包括了name、url、type、upLoadDate
+         */
         for (int i = 1; i < tr.size(); i++) {
             Movie movie = new Movie();
             Elements td = tr.get(i).getElementsByTag("td");
+            //第一个td里面存放了电影类型、名称、url
             Elements a = td.get(0).select("a[href]");
             String type = a.get(0).text();
             String name = a.get(1).text();
             String movieUrl = a.get(1).attr("href");
+            //第二个td里面存放了上传日期
             String uploadDate = td.get(1).text();
             DateFormat format = new SimpleDateFormat("yyyy-MM-dd");
             movie.setName(name);
             movie.setType(type);
             movie.setUrl(movieUrl);
             movie.setUploadDate(format.parse(uploadDate));
+            //生成一个创建时间
             movie.setCreateTime(new Date());
             list.add(movie);
             System.out.println("type = " + type + "\tname = " + name + "\tuploadDate = " + uploadDate + "\tmovieUrl = " + movieUrl);
